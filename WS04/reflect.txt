@@ -1,0 +1,42 @@
+/*/////////////////////////////////////////////////////////////////////////
+                          Workshop - #4
+Full Name  : Andy Chong
+Student ID#: 150588229
+Email      : achong11@myseneca.ca
+Section    : NDD
+
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/
+Composition implies a strong relationship where the child class (CheeseShop and CheeseParty)
+cannot exist without the parent class (Cheese). In this working both CheeseShop and CheeseParty
+have an attribute type const Cheese**. This composition means that the cheese objects
+are an intergal part of the shop or party. They are created managed and destroyed along
+with the shop or party. Aggregation if implemented as const Cheese* would suggest a
+weaker relationship, implying that the cheese objects could be shared among different
+classes. In this workshop composition is chosen enphasiszing the integral nature of cheese
+within the parties and shops.
+In composition move operations involve transferring ownership directly. In this workshop
+CheeseParty and CheeseShop perform shallow copies in move operations, which work becuase these
+classes handle deallocation properly in destructors.
+In an aggregation situation mvoe operations might necessitate deep copying, ensuring
+ownership transfer when classes dont own the resources directly.
+The differences in addCheese implementation is that addCheese in CHeeseParty creates a new
+Cheese object and stores its pointer, implying ownership. But in CheeseShop it stores 
+the pointer of the provided cheese object indicating a reference without ownership.
+To implement removeCheese in CheeseShop one way would be to iterate through the m_cheeses
+array and find the cheese with zero weight delete it and shift the remaining elements to
+fill the gap.
+CheeseShop& CheeseShop::removeCheese() {
+    for (int i = 0; i < m_numCheeses; ++i) {
+        if (m_cheeses[i]->getWeight() == 0) {
+            delete m_cheeses[i];
+            for (int j = i; j < m_numCheeses - 1; ++j) {
+                m_cheeses[j] = m_cheeses[j + 1];
+            }
+            m_numCheeses--;
+            break; // Assuming only one cheese can be removed at a time
+        }
+    }
+    return *this;
+}

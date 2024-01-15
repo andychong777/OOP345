@@ -1,0 +1,25 @@
+/*/////////////////////////////////////////////////////////////////////////
+                          Workshop - #1
+Full Name  : Andy Chong
+Student ID#: 150588229
+Email      : achong11@myseneca.ca
+Section    : NDD
+
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/    
+    The significant time difference between copy and move operations is due to the
+way they handle resources. Copy operations create a new copy of the object, which
+involves allocating new memory and codying data, while move operations transfer the
+ownership of the resources. The airport log constructor reads the input file line
+by line and read it again to populate the array. To avoid rereading the file, the
+size of the array can be dynamically changed as elements are added. Here is an example
+from my code where i read the input file line by line. This part of the code that 
+determines the size of the dynamic array and then reads the file again to populate it:
+ m_airportArr = new Airport[m_size];
+    for (size_t i = 0; i < m_size; i++)
+        m_airportArr[i].read(fptr);
+Lastly the difference between steady clock and system clock are in the stability.
+steady clock represents a clock that will never be adjusted and system clock may be adjusted
+for example day light savings. So steady clock should be used when precise time measurements
+are required and system clock when real time applications are needed. 

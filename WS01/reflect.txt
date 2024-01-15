@@ -1,0 +1,13 @@
+    The topics that I learned while completing this workshop was learning
+the difference between internal and external linkage, using static variables, and
+using std:: string related fucntions. In my code the variables extern double g_discount;
+and extern double g_taxrate; have external linkage becuase they are declared as an extern
+at global scope. They can be defined in one source file and accessed from another.
+I also had internal linkage as well. For example, static const int NAME_LENGTH = 10;
+has internal linkage because it is declared as a static const within the namespace
+sdds. Static variables are useful in this workshop because I dont have to allocate
+memory for each object. static const int NAME_LENGTH = 10; This is a static data member
+of riderequest class and is shared among all objects in the class. Lastly the changes
+I had to my RideRequest included using getline. In my code I used this function to
+get the customer name and ride description. Problems that i had while coding was 
+due to making the formatting correct.

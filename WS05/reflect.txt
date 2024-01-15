@@ -1,0 +1,45 @@
+/*/////////////////////////////////////////////////////////////////////////
+                          Workshop - #5
+Full Name  : Andy Chong
+Student ID#: 150588229
+Email      : achong11@myseneca.ca
+Section    : NDD
+
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/
+
+In this workshop, I deepened my understanding of several C++ concepts, particularly
+functors, lambda expressions, exceptions, and class design.
+
+Functors vs Lambda Expressions:
+A functor is an object that can be treated like a function, meaning it has an 
+overloaded operator(). This is useful when we need an object that maintains 
+state across several function calls. In contrast, a lambda expression is a 
+convenient way to define an anonymous function object directly at the location 
+where it is invoked. Lambda expressions are suitable for short, one-off 
+operations that do not require the storage of state between calls.
+In the case of the SpellChecker class, a functor was appropriate because we needed 
+to track the count of word replacements, which is stateful behavior. Lambdas 
+would be more appropriate for stateless operations, such as a one-time 
+transformation applied to an object.
+
+Exception Handling in SpellChecker:
+Currently, the SpellChecker constructor throws an exception when the file cannot 
+be found. An alternative to using exceptions would be to return a status code or 
+a boolean indicating success or failure. The client code would then check this 
+return value to determine how to proceed. While exceptions provide a clean way 
+to handle errors that can propagate up the call stack, status codes keep the 
+error handling more localized but require more boilerplate checking code.
+
+Redesigning Movie and Book:
+Both Movie and Book classes share logic for parsing strings into their attributes. 
+To avoid this duplication, we could have a base class or a utility function that 
+handles the parsing logic, which both Movie and Book could use.
+
+Necessity of Default Constructors:
+The default constructors for Movie and Book are necessary for situations where 
+objects need to be default-initialized before being assigned actual values, 
+such as when creating arrays or using certain STL containers that require 
+default-constructible types. Removing them would limit the ways these classes
+can be used.

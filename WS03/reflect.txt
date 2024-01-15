@@ -1,0 +1,31 @@
+/*/////////////////////////////////////////////////////////////////////////
+                          Workshop - #3
+Full Name  : Andy Chong
+Student ID#: 150588229
+Email      : achong11@myseneca.ca
+Section    : NDD
+
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/
+
+It is nessesary to add the members that I added in the book class because I can
+specify the conditions under which book object should be considered to be true or
+false. To add on the < and > comparison operators are used for sorting the books.
+By using these operators I basically provide a way for the program to understand
+how book objects should behave in boolean contexts.
+The getLargestItem and getSmallestItem cannot be querries becuase as they are static
+they are associated with the class itself and not with specific instances of the class.
+The static member functions can only access static member variables. Also if I made
+them public it would break the principle of encapsulation.
+I think the operator[] function can be considered a query function. It allows access
+elements of the m_items array. It does not change anything in the collection class.
+The reason we define the class objects outside the class definition is because it 
+separates the declaration of the class structure from its use and memory allocation
+allowing it to be a modular program. 
+The specialization of smallest item and largest item for book and size 10 allows
+initialization of the static variables.
+Also the initialization of smallest item and largest objects for book and size 72
+are necessary because it ensures that these static variables have specific initial
+values tailored for the collection class with max of 72. It makes sure that the class
+behaves correctly.
