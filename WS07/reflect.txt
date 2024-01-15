@@ -1,0 +1,44 @@
+/*/////////////////////////////////////////////////////////////////////////
+                          Workshop - #7
+Full Name  : Andy Chong
+Student ID#: 150588229
+Email      : achong11@myseneca.ca
+Section    : NDD
+
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/
+
+In this workshop, I utilized several Standard Template Library (STL) functions,
+each chosen for its specific utility and efficiency. The functions used include:
+
+accumulate: This function was instrumental in aggregating the total number of cases
+and deaths globally, or for a specific country when provided. It streamlined the summation process.
+
+for_each: This function was employed to iterate through the collection of COVID data,
+enabling the display of all records and aiding in the accumulation of cases and deaths.
+
+sort: This function was used for organizing the collection according to specified criteria
+like country names. It simplified the sorting process.
+
+any_of: This was crucial in the 'inCollection' function to check if any country in
+the collection met specific criteria, such as having more deaths than a given threshold.
+
+copy_if: This function allowed for the extraction of specific COVID statistics, 
+particularly those exceeding a certain number of deaths, into a new list.
+
+transform: This function was used to modify the severity level associated with 
+each COVID record in the collection, based on the number of deaths.
+
+Using STL algorithms has distinct advantages over manual loop implementation. 
+These pre-built algorithms reduce the need for complex logic creation and generally
+offer more efficient performance than custom-written loops. For example, the sort
+algorithm is optimized for speed and simplicity compared to a hand-coded sorting loop.
+
+To improve the function that sorts collections based on a field name, I suggest 
+replacing the string parameter with an unsigned integer. This approach would involve 
+sorting by field index (e.g., col.sort(0) would sort by the first field, which is the 
+country in a COVID record). If an out-of-range index is provided, an exception 
+could be raised, indicating an invalid field. This change would enable compile-time 
+error detection for invalid field specifications, enhancing robustness and reducing 
+runtime errors.

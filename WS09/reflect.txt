@@ -1,0 +1,31 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Workshop - #9
+Full Name  : Andy Chong
+Student ID#: 150588229
+Email      : achong11@myseneca.ca
+Section    : NDD
+
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/
+
+In this workshop I used the concepts of multi-threading and binary file handling.
+1. In my processData class, I used binary files for both reading and writing data.
+This apporach proved to be efficient, especially considing the size of the data.
+The efficiency was evident in the constructor of ProcessData where I used std::fstream
+to handle binary file operations, and showing the benefits of binary files in data
+intensive applications.
+
+2. In my implementation I abblied std::bind to create avgFactorThreaded and VarFactor
+functions. It helped simplify the multi-threading process. By binding some agruments
+of a function and leaving others to be specified later, I could streamline the thread
+creation. The bound fucntions were then used in multiple threads, showing how binding 
+can be utilized in a multi-threaded environment.
+
+3. y dividing the data processing task into several threads, I was able to process different
+segments of the data array concurrently. This approach is particularly beneficial in handling 
+large datasets, as it allows for parallel processing, thereby reducing the overall computation 
+time. In my ProcessData class, I used std::thread to create multiple threads, each 
+calculating a part of the average and variance. This not only improved the performance 
+of the program but also provided a practical insight into how multi-threading can be 
+leveraged to enhance computational efficiency in real-world applications.

@@ -1,0 +1,35 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Workshop - #6
+Full Name  : Andy Chong
+Student ID#: 150588229
+Email      : achong11@myseneca.ca
+Section    : NDD
+
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/
+
+Managing memory is crucial in my implementation, particularly because the Directory
+class is responsible for handling the resources within its vector. This creates a 
+composition relationship, where Directory must oversee the allocation and deallocation 
+of these resources.
+n order to utilize the find() member function of a Directory object, I found it 
+necessary to cast a Resource pointer to a Directory pointer. This casting becomes 
+particularly important in scenarios where the RECURSIVE flag is passed within the 
+find() function of Directory. When encountering a directory during this process, 
+I must cast the resource to Directory to call its find() method. An example of this
+casting is: result = dynamic_cast<Directory*>(m_contents[i])->find(name, flags);.
+
+While it is possible, managing the removal of directories recursively 
+without directly handling resources would be more challenging. In the current design, 
+the Directory destructor is responsible for deleting each item in m_contents. If I 
+were to manage a directory containing a vector of Resource objects, the code would 
+need to recursively remove each resource from the vector when deleting a Directory. 
+This adds complexity to the resource management process.
+
+The need to deallocate memory in the vector of resources stems from the responsibility 
+of the Directory class to manage its resources effectively. The use of dynamic casting 
+was necessary to access specific functions of Directory objects stored as Resource 
+pointers. While using std::vector<sdds::Resource*> was effective for this purpose, 
+using std::vector<sdds::Resource> would have been less feasible due to the complexities 
+in managing resources and directories recursively.

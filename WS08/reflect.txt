@@ -1,0 +1,45 @@
+/*/////////////////////////////////////////////////////////////////////////
+						  Workshop - #7
+Full Name  : Andy Chong
+Student ID#: 150588229
+Email      : achong11@myseneca.ca
+Section    : NDD
+
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////*/
+The most challenging aspect was managing the deletion process for raw pointers. 
+I revisited the concept of catching and rethrowing exceptions,which is essential 
+for correctly handling memory allocation and deallocation.
+
+The use of smart pointers eliminates the need for manual memory deallocation. They 
+automatically manage this, especially when an exception causes an early exit from the scope.
+
+When implementing the main logic, I had to create a Profile object dynamically, 
+validate its address, and then add it to a Database. The process using raw pointers 
+involved a try-catch block for handling exceptions during address validation, as 
+well as deallocating the pointer after use:
+Profile* prof = new Profile(allProfiles[i].m_name, allProfiles[i].m_address, allProfiles[i].m_age);
+try {
+    prof->validateAddress();
+} catch(...) {
+    delete prof;
+    throw;
+}
+result += prof;
+delete prof;
+the logic with smart pointers was more straightforward:
+std::shared_ptr<Profile> p(new Profile(allProfiles[i].m_name, allProfiles[i].m_address, allProfiles[i].m_age));
+p->validateAddress();
+result += p;
+TO reduce these copies, my approach would be to validate the profile before allocation. 
+If it's valid, I would then allocate it dynamically and add it directly to the Database, 
+without creating an additional copy.
+
+I experimented with using std::move in the DataBase:
+database.push_back(std::move(*address));
+
+as opposed to the standard copying method:
+database.push_back(*address);
+
+However, both methods seemed to result in a copy being created and added to the Profile vector.
